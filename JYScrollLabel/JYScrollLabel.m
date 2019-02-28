@@ -55,10 +55,7 @@ static const NSTimeInterval kDefaultDuration = 1;
 }
 
 - (void)scrollAnimate {
-    if (self.texts.count == 0) {
-        @throw [NSException exceptionWithName:@"JYScrollLabel Exception" reason:@"Texts can not be nil" userInfo:nil];
-        return;
-    }
+    NSAssert(self.texts.count != 0, @"JYScrollLabel Exception: Texts can not be nil");
     
     if (self.texts.count == 1) {
         self.currentLabel.text = self.texts.firstObject;
